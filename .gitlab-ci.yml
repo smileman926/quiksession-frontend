@@ -1,0 +1,21 @@
+image: node:latest
+
+stages:
+  - build
+  
+backend-end-build:
+  stage: build
+  only:
+  - master
+  - development
+  script:
+    - echo "Building backend"
+    - echo "Moving files"
+    - sudo cp -rf ./* /root/react/frontend/
+    - printenv
+    - cd /root/react/frontend/
+    - sudo npm run build
+    - pm2 list
+    - pm2 restart react-front
+    - pm2 logs react-front --nostream
+
