@@ -104,16 +104,20 @@ const Home = () => {
 
   const fetchData = async () => {
     try {
-      setLoading(true);
-      const data = await fetchStudios({ pageSize, pageNumber: page, minPrice, maxPrice, lat: latitude, lng: longitude, distance, type: studioType, ...getSortInfo() });
-      setLoading(false);
-
-      if (data.length === 0) {
-        setLoadMore(false);
+      if (latitude && longitude) {
+        setLoading(true);
+        const data = await fetchStudios({ pageSize, pageNumber: page, minPrice, maxPrice, lat: latitude, lng: longitude, distance, type: studioType, ...getSortInfo() });
+        setLoading(false);
+  
+        if (data.length === 0) {
+          setLoadMore(false);
+        } else {
+          setLoadMore(true);
+        }
+        setStudios(studios.concat(data));
       } else {
-        setLoadMore(true);
+        console.error("Please allow location to find studios.");
       }
-      setStudios(studios.concat(data));
     } catch (e) {
       setLoading(false);
       console.log(e.message);
@@ -201,7 +205,7 @@ const Home = () => {
             {studios && studios.length === 0 && (<h2 className={styles.noRecFound} > No Record Found </h2>)}
           </div>
           {
-            (activeView === 'map' && studios && studios.length) ? (<MapView studios={studios} selectedStudio={selectedStudio} />) : null
+            (activeView === 'map') ? (<MapView studios={studios} selectedStudio={selectedStudio} />) : null
           }
 
         </div>

@@ -106,6 +106,7 @@ const SearchBar = (props) => {
             className={styles.datePick}
           >
             <Form.Control as="select"
+              value={distance}
               onChange={(e) => selectChanged(e.target.value)}
             >
               {locations.map((ele) => (<option value={ele.value} >{ele.label}</option>))}

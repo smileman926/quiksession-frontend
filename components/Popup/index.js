@@ -35,8 +35,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       left: "0%",
       top: "20%",
-      width: "100%",
-      margin: "0px"
+      width: "92%",
+      margin: "16px"
     },
   }
 }));
@@ -103,11 +103,6 @@ function Popup(props) {
               {options.map((ele) => (<option value={ele.value} >{ele.label}</option>))}
             </Form.Control>
           </Form.Group>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
           <br />
           <div className={styles.footer}>
             <div  className={styles.check} >
