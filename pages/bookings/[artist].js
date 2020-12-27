@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react'
 import Head from 'next/head'
-import styles from '../../styles/Home.module.scss';
+
 import { useRouter } from 'next/router'
 import { CardContent, Container, Grid, Typography, Chip } from '@material-ui/core';
-import AboutUsHeading from '../../components/AboutUsHeading/AboutUsHeading'
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import ArcHeading from '../../components/ArcHeading/ArcHeading';
-import AboutUsContent from '../../components/AboutUsContent/AboutUsContent';
-import AboutPackages from '../../components/AboutPackeges/AboutPackages'
+import Dropdown from 'react-bootstrap/Dropdown'
+import Button from 'react-bootstrap/Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import styles from '../../styles/Booking.module.scss';
 
 const ArtistPage = () => {
   const router = useRouter()
   const { artist } = router.query
   console.log(artist);
-  
+
   const [value, setValue] = React.useState(2);
 
   return (
@@ -22,133 +22,96 @@ const ArtistPage = () => {
       <Head>
         <title>About QuikSession</title>
       </Head>
+      <Container className={styles.container_top}>
+        <div className='row' >
+          <div className='col-sm-5	col-md-5	col-lg-5	col-xl-5'>
 
-      <div style={{
-        height: 300,
-        width: '100%',
-        backgroundColor: '#308AB4',
-        borderRadius: "0px 0px 0 150px",
-      }}>
+            <img src="/assets/imgs/others4.jpg" alt="Logo" className={styles.img_size} />
+          </div>
+          <div className={'col-sm-5	col-md-5	col-lg-5	col-xl-5 '+ styles.main_div}  >
+            <div className={'row' + styles.div_align_center} >
+              <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
+                <label style={{ textAlign: 'center', color: 'white', fontSize: '30px', marginTop: '5%' }}>
+                  Blue South Studios</label>
+              </div>
+            </div>
+            <div className='row'>
+              <label style={{ textAlign: 'center', color: '#1B7098', marginTop: '2%' }}>1423 JAMESON PLACE WAY, ATLANTA GA, 30039</label>
 
-      </div>
-
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: -150
-      }}>
-        <Container>
-          <CardContent>
-            <Grid container>
-              <Grid item bg={4} md={4} sm={12} xs={12} style={{ zIndex: 9999 }}>
-                <div style={{
+            </div>
+            <div className='row' style={{ marginTop: '2%', justifyContent: 'center' }}>
+              <div
+                style={{
+                  position: 'relative',
+                  height: 40,
+                  width: 40,
+                  borderRadius: 360,
+                  backgroundColor: '#308AB4',
                   display: 'flex',
-
-                  flexDirection: 'column',
-                  alignItems: 'center',
-
+                  justifyContent: 'center',
+                  alignItems: 'center'
                 }}>
+                <FontAwesomeIcon icon={faInstagram} />
+              </div>
+              <div
+                style={{
+                  position: 'relative',
+                  left: 10,
+                  height: 40,
+                  width: 40,
+                  borderRadius: 360,
+                  backgroundColor: '#308AB4',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}>
+                <FontAwesomeIcon icon={faTwitter} />
+              </div>
+            </div>
+            <div className='row' style={{ textAlign: 'center' }}>
+              <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
+                <label style={{ color: 'white', fontSize: '22px', marginTop: '2%' }}>
+                  About
+                </label>
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
+                <label style={{ textAlign: 'left', color: '#1B7098', marginTop: '2%' }}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit.
+                  Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut
+                </label>
+              </div>
+            </div>
 
+          </div>
+        </div>
+        <div className='row' style={{ marginTop: 50 }}>
+          <div className='col-sm-4	col-md-4	col-lg-4	col-xl-4' style={{ textAlign: 'center' }}>
+            <label style={{ fontSize: '1.5em', color: 'white', margin: '3%' }}>RATE = $45/HOUR
+              </label>
+          </div>
+          <div className='col-sm-4	col-md-4	col-lg-4	col-xl-4' style={{ textAlign: 'center' }}>
+            <Dropdown >
+              <Dropdown.Toggle split style={{ backgroundColor: '#308AB4' }} >
+                1 HOUR
+              </Dropdown.Toggle>
 
+              <Dropdown.Menu style={{ backgroundColor: '#1B7098', borderColor: 'none' }}>
+                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
 
-                  <ArcHeading text="BLUE SOUTH" arc={200} radius={50} />
+          </div>
+          <div className='col-sm-4	col-md-4	col-lg-4	col-xl-4' style={{ textAlign: 'center' }}>
+            <Button style={{ backgroundColor: '#313131', border: 'none', margin: '3%' }}>
+              Book
+          </Button></div>
+        </div>
 
-
-
-                  <div style={{
-                    backgroundColor: '#A5A5A5',
-                    height: 35,
-                    width: 170,
-                    marginTop: 20,
-                    borderRadius: 45,
-
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    paddingLeft: 20,
-                    paddingRight: 10
-                  }}>
-                    <Grid item bg={8} md={8}
-                      style={{ display: 'flex', justifyContent: 'center' }}>
-                      <Typography>32 Photos</Typography>
-                    </Grid>
-                    <Grid item bg={4} md={4}
-                      style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                      <ArrowRightIcon style={{ fontSize: 40 }} />
-                    </Grid>
-
-                  </div>
-                </div>
-              </Grid>
-              <Grid item bg={8} md={8} sm={12} xs={12} style={{ zIndex: 9999 }}>
-
-
-                <AboutUsHeading
-                  title="BLUE SOUTH STUDIOS"
-                  subTitle="1423 Jameson Place Way, Atlanta GA, 30039"
-                  rating={3} />
-
-
-
-                <AboutUsContent content=" An example of rendering multiple Chips from an array of values.
-                Deleting a chip removes it from the array. Note that since no onClick property
-                is defined,
-                the Chip can be focused, but does not gain depth while clicked or touched.
-                  " />
-
-
-                <AboutPackages />
-
-              </Grid>
-            </Grid>
-          </CardContent>
-        </Container>
-      </div>
-
-
-
-
-      <div style={{
-        position: "absolute",
-        bottom: -60,
-        left: 50,
-        transform: "translate(-50%, -50%)",
-        height: 130,
-        width: 250,
-        borderRadius: "150px 150px 0 0",
-        backgroundColor: "#308AB4",
-      }}>
-
-      </div>
-      <div style={{
-        position: "absolute",
-        bottom: -60,
-        right: -60,
-        transform: "translate(-50%, -50%)",
-        height: 130,
-        width: 130,
-        borderRadius: "160px 150px 0px 160px",
-        backgroundColor: "#308AB4",
-        zIndex: 0
-      }}>
-
-      </div>
-      <div style={{
-        position: "absolute",
-        bottom: 30,
-        right: -50,
-        transform: "translate(-50%, -50%)",
-        height: 220,
-        width: 100,
-        borderRadius: "160px 0px 0px 160px",
-        background: "#308AB4 0% 0% no-repeat padding-box",
-      }}>
-
-      </div>
-
-
+      </Container>
 
     </div >
   )
