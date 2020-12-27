@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Head from 'next/head'
-
+import AliceCarousel from 'react-alice-carousel';
 import { useRouter } from 'next/router'
 import { CardContent, Container, Grid, Typography, Chip } from '@material-ui/core';
 import Dropdown from 'react-bootstrap/Dropdown'
@@ -16,6 +16,8 @@ const ArtistPage = () => {
 
   const [value, setValue] = React.useState(2);
 
+
+  
   return (
     <div>
 
@@ -25,10 +27,26 @@ const ArtistPage = () => {
       <Container className={styles.container_top}>
         <div className='row' >
           <div className='col-sm-5	col-md-5	col-lg-5	col-xl-5'>
-
-            <img src="/assets/imgs/others4.jpg" alt="Logo" className={styles.img_size} />
+            <AliceCarousel
+            duration={400}
+            autoPlay={true}
+            startIndex = {1}
+            fadeOutAnimation={true}
+            mouseDragEnabled={true}
+            playButtonEnabled={true}
+            autoPlayInterval={2000}
+            autoPlayDirection="rtl"
+            autoPlayActionDisabled={true}
+>
+              <img src="/assets/imgs/others1.jpg" className={styles.img_size}  />
+              <img src="/assets/imgs/others2.jpg" className={styles.img_size}  />
+              <img src="/assets/imgs/others3.jpg" className={styles.img_size}  />
+              <img src="/assets/imgs/others4.jpg" className={styles.img_size}  />
+              <img src="/assets/imgs/others5.jpg" className={styles.img_size}  />
+            </AliceCarousel>
+            {/* <img src="/assets/imgs/others4.jpg" alt="Logo" className={styles.img_size} /> */}
           </div>
-          <div className={'col-sm-5	col-md-5	col-lg-5	col-xl-5 '+ styles.main_div}  >
+          <div className={'col-sm-5	col-md-5	col-lg-5	col-xl-5 ' + styles.main_div}  >
             <div className={'row' + styles.div_align_center} >
               <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
                 <label style={{ textAlign: 'center', color: 'white', fontSize: '30px', marginTop: '5%' }}>

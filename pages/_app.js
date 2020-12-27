@@ -5,7 +5,7 @@ import '../styles/globals.scss'
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 import { Amplify } from 'aws-amplify';
-
+import "react-alice-carousel/lib/alice-carousel.css";
 // aws configuration
 Amplify.configure({
   Auth: {
