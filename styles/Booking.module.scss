@@ -1,7 +1,7 @@
 @import './variables.scss';
 
 .container_top{
-    margin-top: 170px;
+    padding-top: 170px;
 }
 .img_size{
     height: 100%;
@@ -11,5 +11,25 @@
     margin-left: 3%;
 }
 .div_align_center{
-text-align: center;
+    text-align: center;
+}
+
+.thumbContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: auto;
+
+    .thumbItem {
+        cursor: pointer;
+        margin: 8px;
+
+        img {
+            width: 50px;
+        }
+    }
+}
+
+.slideImg {
+    width: 100%;
 }

@@ -13,7 +13,6 @@ app.prepare().then(() => {
   server.use(
     ["/api", "/auth/google", "/v1"],
     createProxyMiddleware({
-     
       target: `http://157.245.104.65:5002/`,
       changeOrigin: true,
     })
