@@ -2,6 +2,7 @@ html,
 body {
   min-height: 100vh;
   padding: 10px;
+  overflow: hidden;
   margin: 0;
   background: transparent radial-gradient(closest-side at 50% 50%, #2F2F2F 0%, #232323 59%, #161616 100%) 0% 0% no-repeat padding-box;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,

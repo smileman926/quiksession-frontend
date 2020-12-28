@@ -120,7 +120,7 @@ const SearchBar = (props) => {
           onApply={onDateChange}
             initialSettings={{ startDate: '1/1/2014', endDate: '3/1/2014' }}
           >
-            <button className={styles.datePick}>Select Date</button>
+            <button className={`${styles.datePick} ${styles.selectDate}`}>Select Date</button>
           </DateRangePicker>
         </div>
         <div className={styles.column}>

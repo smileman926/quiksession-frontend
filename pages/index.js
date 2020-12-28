@@ -176,9 +176,9 @@ const Home = () => {
         <div className={styles.dashboardContainer} >
 
         </div>
-        <StudioType setStudioType={(e) => onStudioTypeChange(e)} />
+        { (activeView === 'map') ? null :  <StudioType setStudioType={(e) => onStudioTypeChange(e)} />}
 
-        <SearchBar changeDate={onDateChange} setDistance={(loc) => setLocationDistance(loc)} onChangePrice={(min, max) => onChangePrice(min, max)} />
+        { (activeView === 'map') ? null : <SearchBar changeDate={onDateChange} setDistance={(loc) => setLocationDistance(loc)} onChangePrice={(min, max) => onChangePrice(min, max)} /> }
         <div className={styles.toolBar} >
           <DeskListMapToggle activeView={activeView} changeActiveView={(view) => setActiveView(view)} />
           <button className={`${styles.button}`} onClick={() => setopenpopup(true)}>Advanced Filter </button>
