@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import './globals.scss';
 
 .landing_page {
   display: flex;
@@ -36,8 +36,8 @@
 
 .bodyWrapper {
   display: flex;
-  width: 90%;
   flex-direction: row;
+
   .img_wrapper {
     // width: 100%;
     height: calc(100vh - 330px);
@@ -84,7 +84,7 @@
 
   .img_wrapper {
     padding: 10px !important;
-    height: calc(100vh - 350px) !important
+    height: calc(100vh - 110px) !important;
   }
 }
 
@@ -116,4 +116,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@include media-breakpoint-down(lg) {
+  .button {
+    display: none !important;
+  }
 }

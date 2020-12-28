@@ -12,6 +12,7 @@
       display: flex;
       align-items: center;
       width: 100%;
+      position: relative;
   .imgContainer {
     background: transparent url("/assets/imgs/others5.jpg") 0% 0% no-repeat padding-box;
     opacity: 1;
@@ -25,6 +26,9 @@
     display: flex;
     align-items: end;
     justify-content: flex-end;
+    position: absolute;
+    right: 0px;
+    bottom: 12px;
   }
 
   .textContent {
@@ -141,8 +145,4 @@
     width: 281px;
   }
 
-  .bookContent {
-    display: none !important;
-
-  }
 }

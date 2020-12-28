@@ -42,6 +42,7 @@ const DashboardList = (props) => {
         <div className={styles.imgContainer}>
         </div>
         { (props.activeView === 'list' || true) ? (
+          <>
           <div className={styles.textContent}>
             <h2>
               {props.listItem.name}
@@ -50,42 +51,21 @@ const DashboardList = (props) => {
               <p>
                 {props.listItem.description}
               </p>
-{/*             
-            <div className={styles.type}>
-              { getFormattedAddress(props.listItem.address) }
             </div>
-            |
-            <div className={styles.type}>
-              Package Starts at
-               ${props.listItem.price}
-              </div>
-            |
-            <div className={styles.type}>
-                {props.listItem.duration || '2 hour minimum'}
-              </div>
-            |
-            <div className={styles.buttonStyle}>
-                {props.listItem.photos} photos
-            </div>
-            |
-            <div className={styles.buttonStyle}>
-                {props.listItem.reviews} reviews
-            </div> */}
-            </div>
-
-              <div className={styles.buttonDiv}>
-                <div onClick={() => bookNow('artist')} className={styles.bookContent}>
-                  <p>
-                    Book
-                  </p>
-                </div>
-                <div onClick={() => bookNow('owner')} className={styles.bookContent}>
-                  <p>
-                    Add STudio
-                  </p>
-                </div>
-              </div>
           </div>
+          <div className={styles.buttonDiv}>
+          <div onClick={() => bookNow('artist')} className={styles.bookContent}>
+            <p>
+              Book
+            </p>
+          </div>
+          <div onClick={() => bookNow('owner')} className={styles.bookContent}>
+            <p>
+              Add STudio
+            </p>
+          </div>
+        </div>
+        </>
           ) : null }
       </div>
     </div>

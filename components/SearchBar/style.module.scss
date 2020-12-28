@@ -65,6 +65,7 @@
 }
 @media only screen and (max-width: 1025px) {
   .dskContainer {
+    display: none !important;
     flex-direction: column !important;
     margin: 0px !important;
     margin-bottom: 120px !important;
@@ -75,7 +76,7 @@
   }
 
   .mobContainer {
-    display: flex !important;
+    display: none !important;
     margin-top: 90px;
     justify-content: center;
     align-items: center;
