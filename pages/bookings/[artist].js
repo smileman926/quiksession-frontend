@@ -16,6 +16,11 @@ import BookingPreview from "../../components/BookingPreview";
 const ArtistPage = () => {
   const router = useRouter()
   const { artist } = router.query
+  const [view, setView] = useState('detail');
+
+  const changeView = (view) => {
+    setView(view);
+  };
 
   console.log(artist);
 
@@ -25,9 +30,9 @@ const ArtistPage = () => {
       <Head>
         <title>About QuikSession</title>
       </Head>
-      {/* <StudioDetail /> */}
-      <BookingEdit />
-      {/* <BookingPreview /> */}
+      { (view === "detail") ? <StudioDetail changeView={(view) => changeView(view)} /> : null }
+      { (view === "edit") ? <BookingEdit changeView={(view) => changeView(view)} /> : null }
+      { (view === "preview") ? <BookingPreview changeView={(view) => changeView(view)} /> : null }
     </div >
   )
 }

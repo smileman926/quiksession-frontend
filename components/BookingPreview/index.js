@@ -36,7 +36,7 @@ const BookingPreview = (props) => {
         <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
           12/28/2020
           </label>
-        <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
+        <label onClick={() => props.changeView("edit")} className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
           EDIT
         </label>
       </div>
@@ -44,7 +44,7 @@ const BookingPreview = (props) => {
         <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
           12 PM - 4 PM
           </label>
-        <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
+        <label onClick={() => props.changeView("edit")} className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
           EDIT
         </label>
       </div>
@@ -52,7 +52,7 @@ const BookingPreview = (props) => {
         <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
           NO EXTRAS
         </label>
-        <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
+        <label onClick={() => props.changeView("edit")} className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
           EDIT
         </label>
       </div>

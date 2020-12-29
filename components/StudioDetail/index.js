@@ -36,6 +36,7 @@ const StudioDetail = (props) => {
     <img src="/assets/imgs/others5.jpg" onDragStart={handleDragStart} className={styles.slideImg} />,
   ];
   
+
   
   return(
     <Container className={styles.container_top}>
@@ -123,7 +124,7 @@ const StudioDetail = (props) => {
 
       </div>
       <div className='col-sm-4	col-md-4	col-lg-4	col-xl-4' style={{ textAlign: 'center' }}>
-        <Button style={{ backgroundColor: '#313131', border: 'none', margin: '3%' }}>
+        <Button style={{ backgroundColor: '#313131', border: 'none', margin: '3%' }} onClick={() => props.changeView("edit")} >
           Book
       </Button></div>
     </div>

@@ -37,7 +37,7 @@ const BookingEdit = (props) => {
           </div>
           <div className={'row' + " " + styles.justify_content} >
             <div className={styles.margingspace}>
-              <SelectBox />
+              <SelectBox title="MONTH" />
             </div>
             <div style={{marginTop:'5%'}}>
               <p>
@@ -45,7 +45,7 @@ const BookingEdit = (props) => {
             </p>
             </div>
             <div className={styles.margingspace}>
-              <SelectBox />
+              <SelectBox title="DAY" />
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@ const BookingEdit = (props) => {
           </div>
           <div className={'row' + " " + styles.justify_content} >
             <div className={styles.margingspace}>
-              <SelectBox />
+              <SelectBox title="TIME" />
             </div>
             <div style={{marginTop:'5%'}}>
               <label style={{ textAlign: 'center', color: 'white', fontSize: '1.2em' }}>
@@ -65,7 +65,7 @@ const BookingEdit = (props) => {
             </label>
             </div>
             <div className={styles.margingspace}>
-              <SelectBox />
+              <SelectBox title="TIME" />
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ const BookingEdit = (props) => {
       <div className='row' >
         <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
 
-          <Button size="lg" style={{ backgroundColor: '#308AB4', border: 'none', marginTop: '5%' }}>
+          <Button size="lg" style={{ backgroundColor: '#308AB4', border: 'none', marginTop: '5%' }} onClick={() => props.changeView("preview")}>
             Review
         </Button>
 
