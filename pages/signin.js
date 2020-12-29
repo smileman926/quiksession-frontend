@@ -69,52 +69,7 @@ const RegisterPage = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.mobView}>
-        <p className={styles.head1}>
-          WELCOME TO
-        </p>
-        <p className={styles.head2}>
-          QUIK SESSION
-        </p>
-
-        <div className={styles.formDiv} >
-          <form onSubmit={submitLogin} className={styles.signUpForm}>
-            <div className={styles.fieldStyle}>
-              <h2 className={styles.fieldHeader}>
-                EMAIL
-              </h2>
-              <FormInputComponent 
-                    placeholder='' 
-                    name='email' 
-                    type='email'
-                    value={loginInfo.email}
-                    handleChange = {(event) => {handleEmailChange(event)}}
-                    isInvalid={isInvalid.email}
-                    kind='login'
-                    required
-                  />  
-            </div>
-            <div className={styles.fieldStyle}>
-              <h2 className={styles.fieldHeader}>
-                EMAIL
-              </h2>
-              <FormInputComponent 
-                    placeholder='' 
-                    name='password' 
-                    type='password'
-                    value={loginInfo.password}
-                    handleChange = {(event) => setLoginInfo({ ...loginInfo, password: event.target.value})}
-                    isInvalid={isInvalid.password}
-                    kind='login'
-                    required
-                  />
-            </div>
-            </form>
-        </div>
-
-      </div>
-      <div className={styles.deskView}>
-
+      
       <Head>
         <title>Sign into QuikSession</title>
       </Head>
@@ -201,7 +156,6 @@ const RegisterPage = () => {
             </div>
           </div>
         </form>      
-      </div>      
       </div>
     
     </div>

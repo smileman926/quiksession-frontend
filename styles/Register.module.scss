@@ -1,9 +1,7 @@
-@import './variables.scss';
+@import './globals.scss';
 
 .container {
-
-  .deskView {
-    padding: 5% 12%;
+  padding: 5% 12%;
 
     h1 {
       color: $colorSky;
@@ -18,7 +16,7 @@
       font-size: 30px;
       font-family: $fontRaleway;
       text-align: center;
-      margin: 20px 0 100px 0;
+      margin: 20px 0 85px 0;
     }
 
     .mt30 {
@@ -113,16 +111,38 @@
   .mobView {
     display: none;
 
-  }
 }
 
+@include media-breakpoint-down(lg) {
 
-@media only screen and (max-width: 1025px) {
-  .mobView {
-    // display: block !important;
+.container {
+    margin-top: 60px;
+
+    h1 {
+      font-size: 24px;
+    }
+
+    .p30 {
+      font-size: 20px;
+    }
   }
 
-  .deskView {
-    // display: none !important;
+  .imgWrapper {
+    height: calc(100vh - 250px) !important;
+    overflow: auto !important;
+  }
+
+  .signUpForm {
+    width: 90% !important;
+  }
+  .imgBG {
+
+    &.left {
+      display: none;
+    }
+
+    &.right {
+      display: none;
+    }
   }
 }

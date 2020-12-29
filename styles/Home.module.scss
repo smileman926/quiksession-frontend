@@ -80,6 +80,7 @@
 
   .bodyWrapper {
     width: 85%;
+    margin-top: 8px;
   }
 
   .img_wrapper {
@@ -119,7 +120,4 @@
 }
 
 @include media-breakpoint-down(lg) {
-  .button {
-    display: none !important;
-  }
 }
