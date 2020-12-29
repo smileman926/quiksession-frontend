@@ -65,13 +65,16 @@
 }
 @media only screen and (max-width: 1025px) {
   .dskContainer {
-    display: none !important;
     flex-direction: column !important;
     margin: 0px !important;
-    margin-bottom: 120px !important;
+    margin-bottom: 20px !important;
     .column{
       width: 250px !important;
       margin: 4px;
+      display: none !important;
+    }
+    .column1 {
+      display: flex !important;
     }
   }
 
