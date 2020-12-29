@@ -67,15 +67,19 @@
   .dskContainer {
     flex-direction: column !important;
     margin: 0px !important;
-    margin-bottom: 120px !important;
+    margin-bottom: 20px !important;
     .column{
       width: 250px !important;
       margin: 4px;
+      display: none !important;
+    }
+    .column1 {
+      display: flex !important;
     }
   }
 
   .mobContainer {
-    display: flex !important;
+    display: none !important;
     margin-top: 90px;
     justify-content: center;
     align-items: center;
