@@ -43,18 +43,21 @@ const StudioDetail = (props) => {
     <div className='row' >
       <div className='col-sm-5	col-md-5	col-lg-5	col-xl-5'>
         { renderThumbs() }
-        <AliceCarousel activeIndex={currentIndex} items={items}>
+        <AliceCarousel disableButtonsControls activeIndex={currentIndex} items={items}>
         </AliceCarousel>
       </div>
       <div className={'col-sm-5	col-md-5	col-lg-5	col-xl-5 ' + styles.main_div}  >
         <div className={'row' + styles.div_align_center} >
           <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
             <label style={{ textAlign: 'center', color: 'white', fontSize: '30px', marginTop: '5%' }}>
-              Blue South Studios</label>
+              { (props.studioDetail && props.studioDetail.name) }  
+            </label>
           </div>
         </div>
         <div className='row'>
-          <label style={{ textAlign: 'center', color: '#1B7098', marginTop: '2%' }}>1423 JAMESON PLACE WAY, ATLANTA GA, 30039</label>
+          <label style={{ textAlign: 'center', color: '#1B7098', marginTop: '2%' }}>
+          { (props.studioDetail && props.studioDetail.address) }
+          </label>
 
         </div>
         <div className='row' style={{ marginTop: '2%', justifyContent: 'center' }}>
@@ -96,8 +99,7 @@ const StudioDetail = (props) => {
         <div className='row'>
           <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
             <label style={{ textAlign: 'left', color: '#1B7098', marginTop: '2%' }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit.
-              Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut
+            { (props.studioDetail && props.studioDetail.description) }
             </label>
           </div>
         </div>
@@ -106,7 +108,7 @@ const StudioDetail = (props) => {
     </div>
     <div className='row' style={{ marginTop: 50 }}>
       <div className='col-sm-4	col-md-4	col-lg-4	col-xl-4' style={{ textAlign: 'center' }}>
-        <label style={{ fontSize: '1.5em', color: 'white', margin: '3%' }}>RATE = $45/HOUR
+        <label style={{ fontSize: '1.5em', color: 'white', margin: '3%' }}>RATE = ${ (props.studioDetail && props.studioDetail.price) }/HOUR
           </label>
       </div>
       <div className='col-sm-4	col-md-4	col-lg-4	col-xl-4' style={{ textAlign: 'center' }}>
@@ -116,9 +118,7 @@ const StudioDetail = (props) => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu style={{ backgroundColor: '#1B7098', borderColor: 'none' }}>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            <Dropdown.Item href="#/action-1">1 Hr</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 

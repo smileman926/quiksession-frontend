@@ -13,9 +13,7 @@ class SelectBox extends React.Component {
 
     handleInputChange(event) {
 
-        this.setState({
-            city: event.target.value
-        });
+        this.props.onSelectChange(this.props.type, event.target.value);
 
     }
 
@@ -29,9 +27,7 @@ class SelectBox extends React.Component {
                 <div className="col-sm-12	col-md-12	col-lg-12	col-xl-12">
                     <select className="form-control" style={{backgroundColor:'#308AB4', color:'white' , border:'none'}} name="city" onChange={this.handleInputChange}>
                         <option selected>{this.props.title}</option>
-                        <option value="1">city 1</option>
-                        <option value="2">city 2</option>
-                        <option value="3">city 3</option>
+                        { this.props.list.map((ele) => (<option value={ele.key}> {ele.value} </option>)) }
                     </select>
                 </div>
             </div>

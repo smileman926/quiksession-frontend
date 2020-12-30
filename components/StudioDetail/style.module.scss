@@ -1,6 +1,8 @@
 @import '../../styles/variables.scss';
 .container_top{
     padding-top: 170px;
+    height: 100vh;
+    overflow: auto;
 }
 .img_size{
     height: 100%;
