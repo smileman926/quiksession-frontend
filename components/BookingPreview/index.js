@@ -22,8 +22,10 @@ const BookingPreview = (props) => {
     try {
       const credit = moment.duration(moment(`${props.bookingDetail.date} ${props.bookingDetail.endTime}:00`).diff(moment(`${props.bookingDetail.date} ${props.bookingDetail.startTime}:00`))).asHours();
       await createBook({
-        ArtistId: (props.studioDetail && props.studioDetail.id),
+        ArtistId: (props.userDetail && props.userDetail.user && props.userDetail.user.id),
+        ProjectId: (props.studioDetail && props.studioDetail.id),
         Subject: "Booked Done",
+        TaskId: (props.studioDetail && props.studioDetail.room && props.studioDetail.room[0] && props.studioDetail.room[0]._id),
         IsAllDay: false,
         BookStatus: "Booked",
         StartTime: moment(`${props.bookingDetail.date} ${props.bookingDetail.startTime}:00`).toISOString(),
@@ -106,7 +108,7 @@ const BookingPreview = (props) => {
     <div className='row' >
       <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
         <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: '#308AB4', fontSize: '1em' }}>
-          Stripe credits: $350.00
+          Stripe credits: ${(props.userDetail && props.userDetail.user && props.userDetail.user.credit)}
           </label>
       </div>
     </div>

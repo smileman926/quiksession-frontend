@@ -10,9 +10,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import moment from "moment";
 import { getBook } from "../../services";
-
-
 import SelectBox from "../SelectBox";
+
+const addonsTypes = [
+  {
+    type: 'Smoke Machine',
+    price: 30
+  },
+]
 
 const BookingEdit = (props) => {
   console.log("props", props);
@@ -200,45 +205,37 @@ const BookingEdit = (props) => {
       <div className='row' >
         <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
           <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.2em', marginTop: '5%' }}>
-            EXTRAS
+            Add Ons
             </label>
         </div>
       </div>
-      <div className='row' >
-        <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6' style={{ textAlign: 'center' }}>
-          <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.2em' }}>
-            12/28/2020
-            </label>
-          <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.2em' }}>
-            ADD
-          </label>
-        </div>
-        <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6' style={{ textAlign: 'center' }}>
-          <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.2em' }}>
-            12/28/2020
-            </label>
-          <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.2em' }}>
-            ADD
-          </label>
-        </div>
-      </div>
-      <div className='row' >
-        <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6' style={{ textAlign: 'center' }}>
-          <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.2em' }}>
-            12/28/2020
-            </label>
-          <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.2em' }}>
-            ADD
-          </label>
-        </div>
-        <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6' style={{ textAlign: 'center' }}>
-          <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.2em' }}>
-            12/28/2020
-            </label>
-          <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.2em' }}>
-            ADD
-          </label>
-        </div>
+      <div className={styles.adonTableDiv} >
+        <table className={styles.adonTable}>
+            <tr>
+              <td className={styles.tableHeading}>
+                Type
+              </td>
+              <td className={styles.tableHeading}>
+                Price
+              </td>
+              <td className={styles.tableHeading}>
+                Action
+              </td>
+            </tr>
+            {
+              addonsTypes.map((ele) => (
+                <tr>
+                  <td className={styles.table_col}> {ele.type} </td>
+                  <td className={styles.table_col}> ${ele.price} </td>
+                  <td className={styles.table_col}> 
+                    <label className={'btn' + " " + styles.btnstyle} >
+                      ADD
+                    </label>  
+                  </td>
+                </tr>
+              ))
+            }
+        </table>
       </div>
       <div className='row' >
         <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>

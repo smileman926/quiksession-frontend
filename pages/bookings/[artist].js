@@ -70,14 +70,14 @@ const ArtistPage = () => {
           ) : (
             <div>
               <div className={((view === "detail") ? styles.diShow : styles.diHide)}>
-                <StudioDetail  studioDetail={studioDetail} changeView={changeView} />
+                <StudioDetail userDetail={user} studioDetail={studioDetail} changeView={changeView} />
               </div>
               <div className={((view === "edit")) ? styles.diShow : styles.diHide}>
-                <BookingEdit bookingDetail={bookingDetail} studioDetail={studioDetail} changeView={changeView} />
+                <BookingEdit userDetail={user} bookingDetail={bookingDetail} studioDetail={studioDetail} changeView={changeView} />
               </div>
               {(view === "preview") ?
                 <div className={((view === "preview")) ? styles.diShow : styles.diHide}>
-                  <BookingPreview bookingDetail={bookingDetail} studioDetail={studioDetail} changeView={changeView} />
+                  <BookingPreview userDetail={user} bookingDetail={bookingDetail} studioDetail={studioDetail} changeView={changeView} />
                 </div> : null }
             </div>
           )
