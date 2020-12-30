@@ -16,7 +16,7 @@ const DashboardList = (props) => {
   const bookNow = (role) => {
     console.log("user", user);
     if (user && user.token) {
-      router.push(`/bookings/test`);
+      router.push(`/bookings/${props.listItem.id}`);
 
     } else {
       router.push({
