@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './style.module.scss';
 import Head from 'next/head'
 import AliceCarousel from 'react-alice-carousel';
@@ -8,11 +8,136 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import Button from 'react-bootstrap/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import moment from "moment";
+import { getBook } from "../../services";
+
 
 import SelectBox from "../SelectBox";
 
 const BookingEdit = (props) => {
-  return(
+  console.log("props", props);
+  const [monthList, setMonthList] = useState([]);
+  const [dateList, setDateList] = useState([]);
+  const [startDates, setStartDates] = useState([]);
+  const [endDates, setEndDates] = useState([]);
+  const [selectedMonth, setSelectedMonth] = useState(props.bookingDetail.selectedMonth);
+  const [selectedDate, setSelectedDate] = useState(props.bookingDetail.selectedDate);
+  const [startTime, setStartTime] = useState(props.bookingDetail.startTime);
+  const [endTime, setEndTime] = useState(props.bookingDetail.endTime);
+  const [selectedAdons, setSelectedAdons] = useState(props.bookingDetail.selectedAdons);
+  const [allTimeRange, setAllTimeRange] = useState(null);
+
+  useEffect(() => {
+    getAllDataRange()
+  }, []);
+
+  const getAllDataRange = async () => {
+    try {
+      setMonthList([]);
+      const temp = [];
+      for (var i = moment().format("MM"); i <= 12; i++) {
+        const tempObj = {
+          key: i - 1,
+          value: moment().month(i - 1).format("MMM")
+        }
+        temp.push(tempObj);
+      }
+      setMonthList(temp);
+
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  const getDates = (month) => {
+    const tempDates = [];
+    let startDate = moment().startOf("month").format("DD")
+
+    if (month == moment().format("MM")-1) {
+      startDate = moment().format("DD")
+    }
+
+    for (var i = startDate; i <= moment().endOf("month").format("DD"); i++) {
+      tempDates.push({
+        key: moment().date(i).format("DD"),
+        value: moment().date(i).format("DD")
+      });
+    }
+    return tempDates;
+  }
+
+  const onSelectChange = (type, value) => {
+    if (value) {
+      switch (type) {
+        case "month":
+          setSelectedMonth(value);
+          setDateList(getDates(value));
+          setSelectedDate(null);
+        break;
+        case "date":
+          setStartTime(null);
+          setEndTime(null);
+          setSelectedDate(value);
+          getBookingTime(value);
+          break;
+        case "startDate":
+          setStartTime(value);
+          setEndDates(allTimeRange.filter((ele) => (ele.key > value)));
+          break;
+        case "endDate":
+          setEndTime(value);
+          break;
+      }
+    }
+  }
+
+  const formatTime = (ele) => {
+    if (ele < 10) {
+      return `0${ele}:00`;
+    } else {
+      return `${ele}:00`;
+    }
+  };
+
+  const getBookingTime = async (date) => {
+    try {
+      const data = await getBook({
+        TaskId: (props.studioDetail && props.studioDetail.room && props.studioDetail.room[0] && props.studioDetail.room[0]._id),
+        date: `${selectedMonth}/${date}/${moment().format("YYYY")}`
+      });
+      console.log(data);
+      if (data && data.AArray) {
+        const dates = data.AArray.map((ele, i) => ({key: formatTime(i), isVisible: ele})).filter((ele) => (ele.isVisible)).map((ele) => ({ key: ele.key, value: ele.key }))
+        setAllTimeRange(dates);
+        setStartDates(dates);
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const previewData = () => {
+    if (selectedMonth && selectedDate && startTime && endTime) {
+      const date = `${selectedMonth}/${selectedDate}/${moment().format("YYYY")}`;
+      const credit = moment.duration(moment(`${date} ${endTime}:00`).diff(moment(`${date} ${startTime}:00`))).asHours();
+      console.log(credit, props.studioDetail);
+      props.changeView("preview", {
+        selectedMonth,
+        selectedDate,
+        startTime,
+        endTime,
+        selectedAdons,
+        date: `${selectedMonth}/${selectedDate}/${moment().format("YYYY")}`,
+        time: `${startTime} - ${endTime}`,
+        total: props.studioDetail.price * credit
+
+      })
+    } else {
+      alert("Please fill all fields first.");
+    }
+  }
+
+  return (
     <Container className={styles.container_top + " " + styles.div_align_center}>
       <div className='row' >
         <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
@@ -24,7 +149,8 @@ const BookingEdit = (props) => {
       <div className='row' >
         <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
           <label style={{ textAlign: 'center', color: '#308AB4', fontSize: '1em' }}>
-            Address</label>
+          { (props.studioDetail && props.studioDetail.address) }
+          </label>
         </div>
       </div>
 
@@ -37,15 +163,15 @@ const BookingEdit = (props) => {
           </div>
           <div className={'row' + " " + styles.justify_content} >
             <div className={styles.margingspace}>
-              <SelectBox title="MONTH" />
+              <SelectBox onSelectChange={onSelectChange} type="month" list={monthList} selectedValue={selectedMonth} title="MONTH" />
             </div>
-            <div style={{marginTop:'5%'}}>
+            <div style={{ marginTop: '5%' }}>
               <p>
                 To
             </p>
             </div>
             <div className={styles.margingspace}>
-              <SelectBox title="DAY" />
+              <SelectBox onSelectChange={onSelectChange} type="date" list={dateList} selectedValue={selectedDate} title="DAY" />
             </div>
           </div>
         </div>
@@ -57,15 +183,15 @@ const BookingEdit = (props) => {
           </div>
           <div className={'row' + " " + styles.justify_content} >
             <div className={styles.margingspace}>
-              <SelectBox title="TIME" />
+              <SelectBox onSelectChange={onSelectChange} type="startDate" list={startDates} selectedValue={startTime} title="TIME" />
             </div>
-            <div style={{marginTop:'5%'}}>
+            <div style={{ marginTop: '5%' }}>
               <label style={{ textAlign: 'center', color: 'white', fontSize: '1.2em' }}>
                 To
             </label>
             </div>
             <div className={styles.margingspace}>
-              <SelectBox title="TIME" />
+              <SelectBox onSelectChange={onSelectChange} type="endDate" list={endDates} selectedValue={endTime} title="TIME" />
             </div>
           </div>
         </div>
@@ -117,13 +243,13 @@ const BookingEdit = (props) => {
       <div className='row' >
         <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
 
-          <Button size="lg" style={{ backgroundColor: '#308AB4', border: 'none', marginTop: '5%' }} onClick={() => props.changeView("preview")}>
+          <Button size="lg" style={{ backgroundColor: '#308AB4', border: 'none', marginTop: '5%' }} onClick={() => previewData()}>
             Review
         </Button>
 
         </div>
       </div>
-      </Container>
+    </Container>
 
 
   )
