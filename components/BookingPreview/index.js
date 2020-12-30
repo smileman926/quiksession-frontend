@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { createBook } from "../../services";
 import moment from "moment";
+import BookingEditComponent from './editComponent';
 
 const BookingPreview = (props) => {
   const router = useRouter();
@@ -51,65 +52,47 @@ const BookingPreview = (props) => {
   }
 
   return(
-    <Container className={styles.container_top + " " + styles.div_align_center}>
+    <Container className={styles.container_top}>
     <div className='row' >
       <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
-        <label style={{ textAlign: 'center', color: '#308AB4', fontSize: '2em', marginTop: '5%' }}>
-          YOUR BOOKING</label>
+        <label className={styles.bookLB}>YOUR BOOKING</label>
       </div>
     </div>
     <div className='row' >
       <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
-        <label style={{ textAlign: 'center', color: 'white', fontSize: '1.8em', marginTop: '1%' }}>
-        { (props.studioDetail && props.studioDetail.name) }  
-        </label>
+        <h2>{ (props?.studioDetail && props.studioDetail.name) }</h2>
       </div>
     </div>
     <div className='row' >
       <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
-        <label style={{ textAlign: 'center', color: 'white', fontSize: '1em' }}>
-        { (props.studioDetail && props.studioDetail.address) }  </label>
+        <label style={{ color: '#308AB4', fontSize: '14px' }}>
+        { (props?.studioDetail && props.studioDetail.address) }  </label>
       </div>
     </div>
     
     <div className='row' style={{ marginTop: '5%' }}>
       <div className='col-sm-4	col-md-4	col-lg-4	col-xl-4'>
-        <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
-          {date}
-          </label>
-        <label onClick={() => props.changeView("edit")} className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
-          EDIT
-        </label>
+        <BookingEditComponent str={date} editFunc={() => props.changeView("edit")}/>
       </div>
       <div className='col-sm-4	col-md-4	col-lg-4	col-xl-4'>
-        <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
-          {time}
-          </label>
-        <label onClick={() => props.changeView("edit")} className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
-          EDIT
-        </label>
+        <BookingEditComponent str={time} editFunc={() => props.changeView("edit")}/>
       </div>
       <div className='col-sm-4	col-md-4	col-lg-4	col-xl-4'>
-        <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
-          NO EXTRAS
-        </label>
-        <label onClick={() => props.changeView("edit")} className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em' }}>
-          EDIT
-        </label>
+        <BookingEditComponent str={'NO EXTRAS'} editFunc={() => props.changeView("edit")}/>
       </div>
     </div>
     <div className='row' >
       <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
-        <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.5em', marginTop: '5%' }}>
+        <label className={'btn' + " " + styles.btnstyle} style={{ color: 'white', marginTop: '20px' }}>
           TOTAL: ${total}
           </label>
       </div>
     </div>
     <div className='row' >
       <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
-        <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: '#308AB4', fontSize: '1em' }}>
-          Stripe credits: ${(props.userDetail && props.userDetail.user && props.userDetail.user.credit)}
-          </label>
+        <label className={styles.remainAmount}>
+          Stripe credits: ${(props?.userDetail?.user && props.userDetail.user.credit)}
+        </label>
       </div>
     </div>
     <div className='row' >
