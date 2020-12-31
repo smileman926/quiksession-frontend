@@ -152,7 +152,7 @@ const BookingEdit = (props) => {
       <div className='row' >
         <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
           <h1 style={{ textAlign: 'center', color: 'white' }}>
-            YOUR BOOKING</h1>
+          { (props?.studioDetail && props.studioDetail.name) }</h1>
         </div>
       </div>
 
