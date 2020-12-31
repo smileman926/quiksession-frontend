@@ -1,14 +1,32 @@
 @import '../../styles/variables.scss';
+
 .container_top{
     padding-top: 100px;
-    height: 100vh;
     overflow: auto;
+    text-align: center;
+
+    .bookLB {
+        color: $colorSky;
+        font-size: 30px;
+    }
+
+    label {
+        text-align: center;
+    
+        &.btnstyle{
+            background-color: #313131;
+            border-right: 1px solid #262525;
+            font-size: 20px;
+        }
+
+        &.remainAmount {
+            color: $colorSkyLight;
+            font-size: 12px;
+            background-color: #313131;
+            border-right: 1px solid #262525;
+            border-radius: 7px;
+            padding: 3px 10px;
+        }
+    }
 }
 
-.div_align_center{
-    text-align: center;
-}
-.btnstyle{
-    background-color: #161616 !important;
-    border-right: 1px solid #262525;
-}

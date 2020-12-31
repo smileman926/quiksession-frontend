@@ -1,0 +1,31 @@
+@import '../../../styles/variables.scss';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+
+  div {
+    text-align: center;
+    height: 40px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:first-of-type {
+      background-color: #313131;  
+      width: 170px;
+      border-radius: 5px 0 0 5px;
+      color: $colorSkyLight;
+    }
+
+    &:last-of-type {
+      background-color: $colorSky;
+      width: 70px;
+      border-radius: 0 5px 5px 0;
+      color: white;
+    } 
+  }
+}
