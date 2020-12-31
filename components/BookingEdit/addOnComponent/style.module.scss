@@ -1,0 +1,50 @@
+@import '../../../styles/variables.scss';
+
+.container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .titleWrapper {
+    height: 40px;
+    background-color: #333333;  
+    width: 170px;
+    border-radius: 5px;
+    color: white;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .addBtnWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .price {
+      background-color: #333333;  
+      width: 70px;
+      height: 40px;
+      border-radius: 5px 0 0 5px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;   
+    }
+
+    .add {
+      background-color: $colorSky;
+      width: 70px;
+      height: 40px;
+      border-radius: 0 5px 5px 0;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  } 
+  
+}

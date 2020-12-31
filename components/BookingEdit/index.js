@@ -11,11 +11,16 @@ import { faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import moment from "moment";
 import { getBook } from "../../services";
 import SelectBox from "../SelectBox";
+import AddOnComponent from './addOnComponent';
 
 const addonsTypes = [
   {
     type: 'Smoke Machine',
     price: 30
+  },
+  {
+    type: 'AddOn 2',
+    price: 50
   },
 ]
 
@@ -202,41 +207,18 @@ const BookingEdit = (props) => {
         </div>
 
       </div>
-      <div className='row' >
+      <div className='row mt-4'>
         <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
-          <label className={'btn' + " " + styles.btnstyle} style={{ textAlign: 'center', color: 'white', fontSize: '1.2em', marginTop: '5%' }}>
+          <label style={{ textAlign: 'center', color: 'white', fontSize: '1.2em' }}>
             Add Ons
-            </label>
+          </label>
         </div>
-      </div>
-      <div className={styles.adonTableDiv} >
-        <table className={styles.adonTable}>
-            <tr>
-              <td className={styles.tableHeading}>
-                Type
-              </td>
-              <td className={styles.tableHeading}>
-                Price
-              </td>
-              <td className={styles.tableHeading}>
-                Action
-              </td>
-            </tr>
-            {
-              addonsTypes.map((ele) => (
-                <tr>
-                  <td className={styles.table_col}> {ele.type} </td>
-                  <td className={styles.table_col}> ${ele.price} </td>
-                  <td className={styles.table_col}> 
-                    <label className={'btn' + " " + styles.btnstyle} >
-                      ADD
-                    </label>  
-                  </td>
-                </tr>
-              ))
-            }
-        </table>
-      </div>
+      </div>    
+      {
+        addonsTypes.map((ele) => (
+          <AddOnComponent addOn={ele} addFunc={()=>console.log("added")}/>
+        ))
+      }
       <div className='row' >
         <div className='col-xs-12	col-sm-12	col-md-12	col-lg-12'>
 
