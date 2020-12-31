@@ -43,6 +43,12 @@ const Header = (props) => {
 
 	return (
 		<div className={clsx(styles.container, isShowMenu ? styles.opend : '')}>
+			<div style={{display: 'none'}} id="payout" onClick={() => {
+								props.handleModal();
+								}}>
+									Add balance
+
+			</div>
 			<div className={styles.wrapper} onClick={() => setIsShowMenu(!isShowMenu)}>
 				<Icon
 					path={mdiMenu}
@@ -65,7 +71,7 @@ const Header = (props) => {
 					{
 						auth ?
 						<Fragment>
-							<div onClick={handleStripeLink}>
+							<div>
 								<a>Stripe <span><i>(payments)</i></span></a>
 							</div>
 							<div onClick={handleLogout}>

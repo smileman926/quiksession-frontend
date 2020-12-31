@@ -4,6 +4,8 @@ import LogoWrapper from "./LogoWrapper";
 import Header from "./Header";
 import Icon from '@mdi/react';
 import { mdiLoading } from '@mdi/js';
+import CheckoutModal from "../components/CheckoutModal.js";
+
 import { NextScript } from 'next/document';
 function Layout(props) {
   const { children } = props;
@@ -20,6 +22,7 @@ function Layout(props) {
       <LogoWrapper credits={newCredit} />
       <Header credits={newCredit} handleModal={() => setOpen(true)} />
       {children}
+      <CheckoutModal isOpen={isOpen} onClose={() => setOpen(false)} />
       {/* <NextScript /> */}
       <style jsx global>{`
     html{
