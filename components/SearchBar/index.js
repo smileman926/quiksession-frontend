@@ -69,12 +69,15 @@ const parseRange = (min, max) => {
 };
 
 const SearchBar = (props) => {
-  const [distance, setDistance] = useState(50);
+  const [distance, setDistance] = useState(props.initValue ||  50);
   const [minPrice, setMinPrice] = useState(null);
   const [maxPrice, setMaxPrice] = useState(null);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(moment().add(1, 'd'));
- 
+
+  useEffect(() => {
+    setDistance(props.initValue || distance ||  50);
+  });
 
   const selectChanged = (data) => {
     props.setDistance(data);
