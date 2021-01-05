@@ -23,6 +23,7 @@ const Home = () => {
   const [auth, setAuth] = useState();
   const [studios, setStudios] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [init, setInit] = useState(true);
   const [selectedStudio, setSelectedStudio] = useState(null);
   const [minPrice, setMinPrice] = useState(null);
   const [pageNumber, setPageNumber] = useState(0);
@@ -106,15 +107,17 @@ const Home = () => {
     try {
       if (latitude && longitude) {
         setLoading(true);
-        const data = await fetchStudios({ pageSize, pageNumber: page, minPrice, maxPrice, lat: latitude, lng: longitude, distance, type: studioType, ...getSortInfo() });
+        const data = await fetchStudios({ pageSize, pageNumber: page, minPrice, maxPrice, lat: latitude, init, lng: longitude, distance, type: studioType, ...getSortInfo() });
+        setInit(data.initValue || false);
+        console.log("init", init);
         setLoading(false);
   
-        if (data.length === 0) {
-          setLoadMore(false);
-        } else {
+        if (data && data.allStudios.length > 0) {
           setLoadMore(true);
+        } else {
+          setLoadMore(false);
         }
-        setStudios(studios.concat(data));
+        setStudios(studios.concat(data.allStudios || []));
       } else {
         console.error("Please allow location to find studios.");
       }
@@ -178,7 +181,7 @@ const Home = () => {
         </div>
         <StudioType setStudioType={(e) => onStudioTypeChange(e)} />
 
-        <SearchBar changeDate={onDateChange} setDistance={(loc) => setLocationDistance(loc)} onChangePrice={(min, max) => onChangePrice(min, max)} />
+        <SearchBar initValue={init} changeDate={onDateChange} setDistance={(loc) => setLocationDistance(loc)} onChangePrice={(min, max) => onChangePrice(min, max)} />
         <div className={styles.toolBar} >
           <DeskListMapToggle activeView={activeView} changeActiveView={(view) => setActiveView(view)} />
           <button className={`${styles.button}`} onClick={() => setopenpopup(true)}>Advanced Filter </button>
