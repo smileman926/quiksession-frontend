@@ -51,7 +51,7 @@
           background-color: white;
           border-top-right-radius: 20px;
           border-bottom-right-radius: 20px;
-          width: 65%;
+          width: 100%;
         }
 
         .backImg {
@@ -176,8 +176,63 @@
   background-color: #308ab4;
   text-transform: uppercase;
   font-weight: 500;
+  margin-right: -20px;
+  padding: 7%;
+  font-size: 1.3em;
 }
+.btncenter {
+  margin: auto;
+  //text-align: end;
+}
+.btncentermobview {
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-left: 55%;
+}
+.btnendweb {
+  text-align: end;
+  padding-left: 30%;
+}
+//btn design on click change
+.btnbgnone {
+  background: none;
+  color: white;
+  border: none;
+}
+.btnbgcolor {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 20px 0px 0px 20px;
+}
+//border-radius: 20px 0px 0px 20px;
+//btn design on click change
 
+@media only screen and (max-width: 600px) {
+  .btnbgcolor {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 20px 20px 0px 0px;
+  }
+  .btncentermobview {
+    justify-content: center;
+    flex-direction: row;
+    margin-left: 0%;
+  }
+  .btnendweb {
+    text-align: center;
+    padding-left: 0%;
+  }
+  .signupbtn {
+    //background-color: #308ab4;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-right: 0px;
+    padding: 2%;
+    font-size: 1.3em;
+  }
+}
 // login styles
 .googlebtn {
   background: no-repeat;
@@ -215,24 +270,26 @@
   float: right;
   margin-right: 5%;
 }
-.signinbtninputrowpadding{
+.signinbtninputrowpadding {
   padding: 5%;
 }
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
+  outline: none;
 }
 ::placeholder {
   color: black;
   opacity: 1; /* Firefox */
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
- color: black;
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: black;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
- color: black;
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: black;
 }

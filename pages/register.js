@@ -129,157 +129,189 @@ const RegisterPage = () => {
         <form onSubmit={submitRegister} className={styles.signUpForm}>
           <div className={styles.imgWrapper}>
             <img className={styles.backImg} src='/assets/imgs/formBG1.jpg' alt='signUpForm' />
-            <div className={styles.contentWrapper}>
-              <div className={'row' + " " + styles.inputrowpadding}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <AccountCircle />
-                  <input
-                    className={styles.inputwidth}
-                    placeholder='First Name'
-                    name='first_name'
-                    type='text'
-                    value={signUpInfo.firstName}
-                    onChange={(event) => {
-                      console.log({ ...signUpInfo, firstName: event.target.value });
-                      setSignUpInfo({ ...signUpInfo, firstName: event.target.value })
-                    }}
-                    required
-                  >
-                  </input>
-                  <img className={styles.iconstyle} src='/assets/logo.png' alt='signUpForm' />
-                </div>
-              </div>
-              <div className={'row' + " " + styles.inputrowpadding}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <AccountCircle />
-                  <input
-                    className={styles.inputwidth}
-                    placeholder='Last Name'
-                    name='last_name'
-                    type='text'
-                    value={signUpInfo.lastName}
-                    onChange={(event) => {
-                      console.log({ ...signUpInfo, lastName: event.target.value });
-                      setSignUpInfo({ ...signUpInfo, lastName: event.target.value })
-                    }}
-                    required
-                  >
-                  </input>
-                </div>
-              </div>
-              <div className={'row' + " " + styles.inputrowpadding}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <AccountCircle />
-                  <input
-                    className={styles.inputwidth}
-                    placeholder='Personal Email'
-                    name='email'
-                    type='email'
-                    isInvalid={isInvalid.email}
-                    value={signUpInfo.email}
-                    onChange={(event) => {
-                      console.log({ ...signUpInfo, email: event.target.value });
-                      setSignUpInfo({ ...signUpInfo, email: event.target.value })
-                    }}
-                    required
-                  >
-                  </input>
-                </div>
-              </div>
-              <div className={'row' + " " + styles.inputrowpadding}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <AccountCircle />
-                  <input
-                    className={styles.inputwidth}
-                    placeholder='Confirm Email'
-                    name='confirmEmail'
-                    type='email'
-                    value={signUpInfo.confirmEmail}
-                    onChange={(event) => {
-                      console.log({ ...signUpInfo, confirmEmail: event.target.value });
-                      setSignUpInfo({ ...signUpInfo, confirmEmail: event.target.value })
-                    }}
-                    required
-                  >
-                  </input>
-                </div>
-              </div>
-              <div className={'row' + " " + styles.inputrowpadding}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <LockIcon />
-                  <input
-                    className={styles.inputwidth}
-                    placeholder='Password'
-                    name='password'
-                    type='password'
-                    value={signUpInfo.password}
-                    onChange={(event) => {
-                      console.log({ ...signUpInfo, password: event.target.value });
-                      setSignUpInfo({ ...signUpInfo, password: event.target.value })
-                    }}
-                    required
-                  />
-                  <span className={styles.VisibilityIconview}>
-                    <VisibilityIcon />
-                  </span>
-                </div>
-              </div>
-              <div className={'row' + " " + styles.inputrowpadding}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <LockIcon />
-                  <input
-                    className={styles.inputwidth}
-                    placeholder='Confirm Password'
-                    name='confirmPass'
-                    type='password'
-                    value={signUpInfo.confirmPass}
-                    onChange={(event) => {
-                      console.log({ ...signUpInfo, confirmPass: event.target.value });
-                      setSignUpInfo({ ...signUpInfo, confirmPass: event.target.value })
-                    }}
-                    required
-                  />
-                  <span className={styles.VisibilityIconview}>
-                    <VisibilityIcon />
-                  </span>
-                </div>
-              </div>
-
-              <div className={'row' + " " + styles.inputrowpadding}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <div className='row'>
-
-                    <label className={styles.labelstyle}>
-                      Add Profile Image
-                  </label>
-                    <FormAddImage isSmallSize={false} activeImage={activeImage} setActiveImage={setActiveImage} />
+            <div className={'row'}>
+              {/* <div className={'col-sm-4	col-md-4	col-lg-4	col-xl-4' + " " + styles.btncenter}>
+                <div className={'row' + " " + styles.btncentermobview}>
+                  <div className={'col-sm-6	col-md-6	col-lg-6	col-xl-6' + " " + styles.btnendweb}>
+                    <Button className={styles.signupbtn + " " + styles.btnbgnone} as="input" type="submit" value="Log In" />
                   </div>
                 </div>
+                <div className={'row' + " " + styles.btncentermobview}>
+                  <div className={'col-sm-6	col-md-6	col-lg-6	col-xl-6' + " " + styles.btnendweb}>
+                    <Button className={styles.signupbtn + " " + styles.btnbgcolor} as="input" type="submit" value="Sign up" />
+                  </div>
+                </div>
+              </div> */}
+
+
+              <div className={'col-sm-4	col-md-4	col-lg-4	col-xl-4' + " " + styles.btncenter}>
+                <div className={'row' + " " + styles.btncentermobview}>
+                  {/* <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6'> */}
+                  <Button className={styles.signupbtn + " " + styles.btnbgnone} as="input" type="submit" value="Log In" />
+                  {/* </div> */}
+                  {/* </div>
+                <div className='row'> */}
+                  {/* <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6'> */}
+                  <Button className={styles.signupbtn + " " + styles.btnbgcolor} as="input" type="submit" value="Sign up" />
+                  {/* </div> */}
+                </div>
               </div>
 
-              <div className={'row' + " " + styles.inputrowpadding}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <label className={styles.inputrowpadding + " " + styles.labelsocials}>
-                    Connect socials
+
+
+
+              <div className='col-sm-8	col-md-8	col-lg-8	col-xl-8'>
+                <div className={styles.contentWrapper}>
+                  <div className={'row' + " " + styles.inputrowpadding}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <AccountCircle />
+                      <input
+                        className={styles.inputwidth}
+                        placeholder='First Name'
+                        name='first_name'
+                        type='text'
+                        value={signUpInfo.firstName}
+                        onChange={(event) => {
+                          console.log({ ...signUpInfo, firstName: event.target.value });
+                          setSignUpInfo({ ...signUpInfo, firstName: event.target.value })
+                        }}
+                        required
+                      >
+                      </input>
+                      <img className={styles.iconstyle} src='/assets/logo.png' alt='signUpForm' />
+                    </div>
+                  </div>
+                  <div className={'row' + " " + styles.inputrowpadding}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <AccountCircle />
+                      <input
+                        className={styles.inputwidth}
+                        placeholder='Last Name'
+                        name='last_name'
+                        type='text'
+                        value={signUpInfo.lastName}
+                        onChange={(event) => {
+                          console.log({ ...signUpInfo, lastName: event.target.value });
+                          setSignUpInfo({ ...signUpInfo, lastName: event.target.value })
+                        }}
+                        required
+                      >
+                      </input>
+                    </div>
+                  </div>
+                  <div className={'row' + " " + styles.inputrowpadding}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <AccountCircle />
+                      <input
+                        className={styles.inputwidth}
+                        placeholder='Personal Email'
+                        name='email'
+                        type='email'
+                        isInvalid={isInvalid.email}
+                        value={signUpInfo.email}
+                        onChange={(event) => {
+                          console.log({ ...signUpInfo, email: event.target.value });
+                          setSignUpInfo({ ...signUpInfo, email: event.target.value })
+                        }}
+                        required
+                      >
+                      </input>
+                    </div>
+                  </div>
+                  <div className={'row' + " " + styles.inputrowpadding}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <AccountCircle />
+                      <input
+                        className={styles.inputwidth}
+                        placeholder='Confirm Email'
+                        name='confirmEmail'
+                        type='email'
+                        value={signUpInfo.confirmEmail}
+                        onChange={(event) => {
+                          console.log({ ...signUpInfo, confirmEmail: event.target.value });
+                          setSignUpInfo({ ...signUpInfo, confirmEmail: event.target.value })
+                        }}
+                        required
+                      >
+                      </input>
+                    </div>
+                  </div>
+                  <div className={'row' + " " + styles.inputrowpadding}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <LockIcon />
+                      <input
+                        className={styles.inputwidth}
+                        placeholder='Password'
+                        name='password'
+                        type='password'
+                        value={signUpInfo.password}
+                        onChange={(event) => {
+                          console.log({ ...signUpInfo, password: event.target.value });
+                          setSignUpInfo({ ...signUpInfo, password: event.target.value })
+                        }}
+                        required
+                      />
+                      <span className={styles.VisibilityIconview}>
+                        <VisibilityIcon />
+                      </span>
+                    </div>
+                  </div>
+                  <div className={'row' + " " + styles.inputrowpadding}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <LockIcon />
+                      <input
+                        className={styles.inputwidth}
+                        placeholder='Confirm Password'
+                        name='confirmPass'
+                        type='password'
+                        value={signUpInfo.confirmPass}
+                        onChange={(event) => {
+                          console.log({ ...signUpInfo, confirmPass: event.target.value });
+                          setSignUpInfo({ ...signUpInfo, confirmPass: event.target.value })
+                        }}
+                        required
+                      />
+                      <span className={styles.VisibilityIconview}>
+                        <VisibilityIcon />
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className={'row' + " " + styles.inputrowpadding}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <div className='row'>
+
+                        <label className={styles.labelstyle}>
+                          Add Profile Image
+                    </label>
+                        <FormAddImage isSmallSize={false} activeImage={activeImage} setActiveImage={setActiveImage} />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className={'row' + " " + styles.inputrowpadding}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <label className={styles.inputrowpadding + " " + styles.labelsocials}>
+                        Connect socials
                   </label>
-                </div>
-              </div>
+                    </div>
+                  </div>
 
-              <div className={'row' + " " + styles.inputrowpadding}>
-                <div className='col-sm-3	col-md-3	col-lg-3	col-xl-3'>
-                  <img src='/assets/imgs/icons/instagram.png' className={styles.socialIcon} />
-                </div>
-                <div className='col-sm-3	col-md-3	col-lg-3	col-xl-3'>
-                  <img src='/assets/imgs/icons/linkedin.png' className={styles.socialIcon} />
-                </div>
-                <div className='col-sm-3	col-md-3	col-lg-3	col-xl-3'>
-                  <img src='/assets/imgs/icons/twitter.png' className={styles.socialIcon} />
-                </div>
-                <div className='col-sm-3	col-md-3	col-lg-3	col-xl-3'>
-                  <Button className={styles.signupbtn} as="input" type="submit" value="Sign up" />
-                </div>
-              </div>
-              {/* <Grid container spacing={2}>
+                  <div className={'row' + " " + styles.inputrowpadding}>
+                    <div className='col-sm-3	col-md-3	col-lg-3	col-xl-3'>
+                      <img src='/assets/imgs/icons/instagram.png' className={styles.socialIcon} />
+                    </div>
+                    <div className='col-sm-3	col-md-3	col-lg-3	col-xl-3'>
+                      <img src='/assets/imgs/icons/linkedin.png' className={styles.socialIcon} />
+                    </div>
+                    <div className='col-sm-3	col-md-3	col-lg-3	col-xl-3'>
+                      <img src='/assets/imgs/icons/twitter.png' className={styles.socialIcon} />
+                    </div>
+                    <div className='col-sm-3	col-md-3	col-lg-3	col-xl-3'>
+                      <Button className={styles.signupbtn} as="input" type="submit" value="Sign up" />
+                    </div>
+                  </div>
+                  {/* <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                   <FormInputComponent
                     placeholder='Personal Email'
@@ -301,7 +333,7 @@ const RegisterPage = () => {
                 </Grid>
 
               </Grid> */}
-              {/* <Grid container spacing={2}>
+                  {/* <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                   <FormInputComponent
                     placeholder='Password'
@@ -327,10 +359,10 @@ const RegisterPage = () => {
                   />
                 </Grid>
               </Grid> */}
-              {/* <Grid item xs={12} md={4}>
+                  {/* <Grid item xs={12} md={4}>
                 <FormAddImage isSmallSize={false} activeImage={activeImage} setActiveImage={setActiveImage} />
               </Grid> */}
-              {/* <Grid container justify='center' spacing={2}>
+                  {/* <Grid container justify='center' spacing={2}>
                 <Grid item xs={12} md={6}>
                   <RadioGroup
                     className={styles.aroundAlign}
@@ -355,7 +387,7 @@ const RegisterPage = () => {
                   </RadioGroup>
                 </Grid>
               </Grid> */}
-              {/* <Grid container alignItems='center' spacing={2}>
+                  {/* <Grid container alignItems='center' spacing={2}>
                 <Grid item xs={12} md={8}>
                   <Grid container spacing={3}>
                     <Grid item xs={4} className={styles.centerAlign}>
@@ -376,11 +408,13 @@ const RegisterPage = () => {
                   <FormButtonComponent title='Sign Up' type='submit' isLoading={isLoading} />
                 </Grid>
               </Grid> */}
+                </div>
+              </div>
             </div>
           </div>
         </form>
       </div>
-    </div>
+    </div >
   )
 }
 
