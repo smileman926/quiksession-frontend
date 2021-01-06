@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Register.module.scss';
+import Link from "next/link";
+
 import clsx from 'clsx';
 import FormInputComponent from '../components/FormControls/FormInputComponent';
 import { useState, useEffect } from 'react';
@@ -147,12 +149,16 @@ const RegisterPage = () => {
               <div className={'col-sm-4	col-md-4	col-lg-4	col-xl-4' + " " + styles.btncenter}>
                 <div className={'row' + " " + styles.btncentermobview}>
                   {/* <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6'> */}
-                  <Button className={styles.signupbtn + " " + styles.btnbgnone} as="input" type="submit" value="Log In" />
+                  <Link href="/signin">
+                    <Button className={styles.signupbtn + " " + styles.btnbgnone} as="input" value="Log In" />
+                  </Link>
                   {/* </div> */}
                   {/* </div>
                 <div className='row'> */}
                   {/* <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6'> */}
-                  <Button className={styles.signupbtn + " " + styles.btnbgcolor} as="input" type="submit" value="Sign up" />
+                  <Link href="/register">
+                    <Button className={styles.signupbtn + " " + styles.btnbgcolor} as="input" value="Sign up" />
+                  </Link>
                   {/* </div> */}
                 </div>
               </div>
