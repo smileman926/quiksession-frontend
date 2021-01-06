@@ -6,13 +6,13 @@
   align-items: center;
 
   .wrapper {
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: #555555CC;
+    background-color: #308AB4;
     backdrop-filter: blur(3px);
     border-radius: 50%;
     cursor: pointer;

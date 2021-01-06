@@ -29,7 +29,7 @@ const FormAddImage = (props) => {
             </div>
           :
           <div className={clsx(styles.wrapper, isSmallSize ? styles.smallSize : '')}>
-            {!isSmallSize && <label>Add Image</label>}
+            {!isSmallSize }
             <Icon
               path={mdiPlus}
               size={1.5}

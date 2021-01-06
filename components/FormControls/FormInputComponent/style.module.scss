@@ -1,19 +1,20 @@
 @import '../../../styles/variables.scss';
 
 .container {
-  padding: 20px 15px;
+  padding: 5px 15px;
   width: 100%;
 
   input {
-    border-radius: 23px;
-    height: 50px;
-    padding: 10px 20px;
+    //border-radius: 23px;
+    height: 30px;
+    padding: 10px 10px;
     border: none;
-    color: white;
+    border-bottom: 2px solid black;
+    color: black;
     font-size: 17px;
-    font-weight: 200;
+    //font-weight: 200;
     width: 100%;
-    background-color: #555555CC;
+    //background-color: #555555CC;
     font-family: "Raleway", sans-serif;
     letter-spacing: 1.3px;
     backdrop-filter: blur(3px);
@@ -32,7 +33,7 @@
     }
 
     &::placeholder {
-      color: white;
+      color: #141414;
       opacity: 1;
     }
     

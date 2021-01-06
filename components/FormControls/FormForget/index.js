@@ -6,7 +6,7 @@ const FormForget = (props) => {
   return(
     <div className={styles.container}>
       <label>Forgot Password</label>
-      <label>Forgot username</label>
+      {/* <label>Forgot username</label> */}
     </div>
   )
 }

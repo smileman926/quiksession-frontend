@@ -1,121 +1,101 @@
-@import './globals.scss';
+@import "./globals.scss";
 
 .container {
-  padding: 5% 12%;
+  padding: 5% 5%;
 
-    h1 {
-      color: $colorSky;
-      letter-spacing: 3px;
-      font-size: 35px;
-      margin-bottom: 10px;
-    }
+  h1 {
+    color: $colorSky;
+    letter-spacing: 3px;
+    font-size: 35px;
+    margin-bottom: 10px;
+  }
 
-    .p30 {
-      color: white;
-      letter-spacing: 5px;
-      font-size: 30px;
-      font-family: $fontRaleway;
-      text-align: center;
-      margin: 20px 0 85px 0;
-    }
+  .p30 {
+    color: white;
+    letter-spacing: 5px;
+    font-size: 30px;
+    font-family: $fontRaleway;
+    text-align: center;
+    margin: 20px 0 85px 0;
+  }
 
-    .mt30 {
-      margin-top: 30px;
-    }
-  
-    .formWrapper {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  .mt30 {
+    margin-top: 30px;
+  }
 
-      .signUpForm {
-        position: absolute;
-        top: -60px;
-        left: 50%;
-        width: 700px;
-        transform: translate(-50%);
-        box-shadow: 0px 15px 10px #000000EF;
+  .formWrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        .imgWrapper {
+    .signUpForm {
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      width: 100%;
+      transform: translate(-50%);
+      box-shadow: 0px 15px 10px #000000ef;
+
+      .imgWrapper {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+
+        .contentWrapper {
           position: relative;
-          overflow: hidden;
+          float: right;
+          padding: 50px 20px 20px 20px;
+          z-index: 2;
+          background-color: white;
+          border-top-right-radius: 20px;
+          border-bottom-right-radius: 20px;
+          width: 65%;
+        }
+
+        .backImg {
+          position: absolute;
+          left: 0;
+          top: 0;
           width: 100%;
           height: 100%;
-
-          .contentWrapper {
-            position: relative;
-            padding: 60px 20px 20px 20px;
-            z-index: 2;
-            
-            .centerAlign {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-
-              .socialIcon {
-                width: 38px;
-                height: 38px;
-                position: relative;
-                opacity: 1;
-              }
-    
-              .socialBottom {
-                background-color: #555555CC;
-                backdrop-filter: blur(3px);
-                width: 90px;
-                height: 15px;
-                margin-top: 10px;
-                border-radius: 16px;
-              }
-            }          
-          }
-
-          .backImg {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.64;
-          }       
-        }
-      }
-
-      .imgBG {
-        width: 520px;
-        height: 440px;      
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        opacity: 0.45;
-
-        &.left {
-          background-image: url('/assets/imgs/formBG2.png');
-        }
-
-        &.right {
-          background-image: url('/assets/imgs/formBG3.png');
+          opacity: 0.64;
         }
       }
     }
 
-    .aroundAlign {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
+    .imgBG {
+      width: 520px;
+      height: 440px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0.45;
+
+      &.left {
+        background-image: url("/assets/imgs/formBG2.png");
+      }
+
+      &.right {
+        background-image: url("/assets/imgs/formBG3.png");
+      }
     }
   }
 
-  .mobView {
-    display: none;
+  .aroundAlign {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
 
+.mobView {
+  display: none;
 }
 
 @include media-breakpoint-down(lg) {
-
-.container {
+  .container {
     margin-top: 60px;
 
     h1 {
@@ -140,7 +120,6 @@
     display: none;
   }
   .imgBG {
-
     &.left {
       display: none;
     }
@@ -149,4 +128,111 @@
       display: none;
     }
   }
+}
+
+.inputwidth {
+  width: 70%;
+  height: 30px;
+  padding: 10px 10px;
+  border: none;
+  border-bottom: 2px solid black;
+  color: black;
+  font-size: 17px;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 1.3px;
+}
+.inputrowpadding {
+  padding: 2%;
+}
+.inputrowpaddings {
+  padding-left: 10%;
+  padding-left: 10%;
+}
+.VisibilityIconview {
+  margin-left: -30px;
+}
+.labelstyle {
+  color: #141414;
+  font-size: 1.1em;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  font-weight: 500;
+}
+.socialIcon {
+  height: 30px;
+}
+.iconstyle {
+  height: 40px;
+  width: 40px;
+  float: right;
+}
+.labelsocials {
+  color: #141414;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+.signupbtn {
+  background-color: #308ab4;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+// login styles
+.googlebtn {
+  background: no-repeat;
+  color: gray;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+.loginiconstyle {
+  width: 60px;
+  height: 60px;
+}
+.loginiconcenter {
+  text-align: center;
+}
+.logininputwidth {
+  width: 90%;
+  font-family: $fontAvenir;
+  height: 30px;
+  padding: 10px 10px;
+  border: none;
+  border-bottom: 2px solid black;
+  color: black;
+  font-size: 17px;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 1.3px;
+}
+
+.signinbtn {
+  background-color: #308ab4;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 2%;
+  float: right;
+  margin-right: 5%;
+}
+.signinbtninputrowpadding{
+  padding: 5%;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+::placeholder {
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: black;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: black;
 }
