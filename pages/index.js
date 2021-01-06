@@ -16,7 +16,8 @@ import { usePosition } from '../services/usePosition';
 import InfiniteScroll from 'react-infinite-scroller';
 import Spinner from 'react-bootstrap/Spinner'
 
-const pageSize = 4;
+const pageSize = 10;
+
 let page = 0;
 const Home = () => {
   const router = useRouter();
@@ -116,7 +117,6 @@ const Home = () => {
         setInit(data.initValue || false);
 
         setLoading(false);
-  
         if (data && data.allStudios.length > 0) {
           setLoadMore(true);
         } else {
@@ -151,12 +151,13 @@ const Home = () => {
     setMaxPrice(max);
   };
 
-  const loadMoreFun = () => {
-    console.log("load more", page);
-    if (loadMore) {
-      page++;
+  const loadMoreFun = async (page2) => {
+
+    if (loadMore && page !== page2) {
+      page = page2;
       // setPageNumber(pageNumber+1);
-      fetchData();
+      await fetchData();
+      console.log("loading page", page, page2);
 
     }
   }
@@ -202,6 +203,7 @@ const Home = () => {
             {studios && studios.length && studios.map((ele) => (
               <InfiniteScroll
                 pageStart={0}
+                threshold={50}
                 loadMore={loadMoreFun}
                 hasMore={loadMore}
                 loader={<div className="loader" key={0}>Loading ...</div>}
