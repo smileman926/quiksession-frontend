@@ -56,6 +56,7 @@ const Home = () => {
   } = usePosition();
 
   useEffect(() => {
+    page = 0;
     const user = JSON.parse(localStorage.getItem('auth'));
     setLocation({ latitude, longitude });
     user?.token ? setAuth(user) : null;
@@ -108,8 +109,12 @@ const Home = () => {
       if (latitude && longitude) {
         setLoading(true);
         const data = await fetchStudios({ pageSize, pageNumber: page, minPrice, maxPrice, lat: latitude, init, lng: longitude, distance, type: studioType, ...getSortInfo() });
-        setInit(data.initValue || false);
         console.log("init", init);
+        if (init) {
+          setDistance(data.initValue)
+        }
+        setInit(data.initValue || false);
+
         setLoading(false);
   
         if (data && data.allStudios.length > 0) {
