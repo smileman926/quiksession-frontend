@@ -23,7 +23,7 @@ const Home = () => {
   const router = useRouter();
   const [auth, setAuth] = useState();
   const [studios, setStudios] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [init, setInit] = useState(true);
   const [selectedStudio, setSelectedStudio] = useState(null);
   const [minPrice, setMinPrice] = useState(null);
@@ -109,17 +109,22 @@ const Home = () => {
     try {
       if (latitude && longitude) {
         setLoading(true);
+
         const data = await fetchStudios({ pageSize, pageNumber: page, minPrice, maxPrice, lat: latitude, init, lng: longitude, distance, type: studioType, ...getSortInfo() });
-        console.log("init", init);
+        console.log(" init ", init, page, loading);
         if (init) {
           setDistance(data.initValue)
         }
         setInit(data.initValue || false);
+        // setLoading(false);
 
-        setLoading(false);
+        console.log("  data.allStudios ", loading, data.allStudios.length);
         if (data && data.allStudios.length > 0) {
           setLoadMore(true);
+          // setLoading(false);
+
         } else {
+          setLoading(false);
           setLoadMore(false);
         }
         setStudios(studios.concat(data.allStudios || []));
@@ -127,7 +132,7 @@ const Home = () => {
         console.error("Please allow location to find studios.");
       }
     } catch (e) {
-      setLoading(false);
+      setLoading(false);  
       console.log(e.message);
     }
   };
@@ -196,7 +201,8 @@ const Home = () => {
             <div className={styles.loadingView}>
               <Spinner animation="border" variant="light" />
             </div>
-          ) : (
+          ) : null }
+          {(
         <div className={styles.bodyWrapper}>
           <div className={styles.img_wrapper + ((activeView === 'map') ? (' ' + styles.mapView) : '')}>
 
