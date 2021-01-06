@@ -79,79 +79,93 @@ const RegisterPage = () => {
         <title>Sign into QuikSession</title>
       </Head>
       <h1>WELCOME TO QUIKSESSION</h1>
-      <p className={styles.p30}>Ready to Log in?</p>
+      <p className={styles.p30}></p>
 
       <div className={styles.formWrapper}>
         <form onSubmit={submitLogin} className={styles.signUpForm}>
           <div className={styles.imgWrapper}>
             <img className={styles.backImg} src='/assets/imgs/formBG1.jpg' alt='signUpForm' />
-            <div className={styles.contentWrapper}>
+            <div className='row'>
+              <div className={'col-sm-4	col-md-4	col-lg-4	col-xl-4' + " " + styles.btncenter}>
+                <div className={'row' + " " + styles.btncentermobview}>
+                  {/* <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6'> */}
+                  <Button className={styles.signupbtn + " " + styles.btnbgcolor} as="input" type="submit" value="Log In" />
+                  {/* </div> */}
+                  {/* </div>
+                <div className='row'> */}
+                  {/* <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6'> */}
+                  <Button className={styles.signupbtn + " " + styles.btnbgnone} as="input" type="submit" value="Sign up" />
+                  {/* </div> */}
+                </div>
+              </div>
+              <div className='col-sm-8	col-md-8	col-lg-8	col-xl-8'>
+                <div className={styles.contentWrapper}>
 
-              <div className={'row' + " " + styles.loginiconcenter}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <img className={styles.loginiconstyle} src='/assets/logo.png' alt='signUpForm' />
-                </div>
-              </div>
+                  <div className={'row' + " " + styles.loginiconcenter}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <img className={styles.loginiconstyle} src='/assets/logo.png' alt='signUpForm' />
+                    </div>
+                  </div>
 
-              <div className={'row' + " " + styles.signinbtninputrowpadding}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <AccountCircle />
-                  <input
-                    className={styles.logininputwidth}
-                    placeholder='Email'
-                    name='email'
-                    type='email'
-                    value={loginInfo.email}
-                    onChange={(event) => {
-                      console.log({ ...loginInfo, email: event.target.value });
-                      setLoginInfo({ ...loginInfo, email: event.target.value })
-                    }}
-                    required
-                  >
-                  </input>
-                </div>
-              </div>
+                  <div className={'row' + " " + styles.signinbtninputrowpadding}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <AccountCircle />
+                      <input
+                        className={styles.logininputwidth}
+                        placeholder='Email'
+                        name='email'
+                        type='email'
+                        value={loginInfo.email}
+                        onChange={(event) => {
+                          console.log({ ...loginInfo, email: event.target.value });
+                          setLoginInfo({ ...loginInfo, email: event.target.value })
+                        }}
+                        required
+                      >
+                      </input>
+                    </div>
+                  </div>
 
-              <div className={'row' + " " + styles.signinbtninputrowpadding}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <LockIcon />
-                  <input
-                    className={styles.logininputwidth}
-                    placeholder='Password'
-                    name='password'
-                    type='password'
-                    value={loginInfo.password}
-                    onChange={(event) => {
-                      console.log({ ...loginInfo, password: event.target.value });
-                      setLoginInfo({ ...loginInfo, password: event.target.value })
-                    }}
-                    required
-                  />
-                  <span className={styles.VisibilityIconview}>
-                    <VisibilityIcon />
-                  </span>
-                </div>
-              </div>
-              <div className={'row' + " " + styles.signinbtninputrowpadding}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <FormForget />
-                </div>
-              </div>
-              <div className={'row' + " " + styles.inputrowpadding}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <Button className={styles.signinbtn} as="input" type="submit" value="Log In" />
-                  {/* <FormButtonComponent type="submit" isLoading={isLoading} title='Log In' /> */}
-                </div>
-              </div>
-              <div className={'row' + " " + styles.inputrowpadding}>
-                <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                  <img src='/assets/google.png' alt='google_icon' />
-                  <Button className={styles.googlebtn + " " + 'btn'} as="input" isGoogle={true} type="button" value="Sign In with Google" onClickFunc={() => router.push("/auth/google")} />
-                  {/* <FormButtonComponent type="button" isGoogle={true} title='Continue with' onClickFunc={() => router.push("/auth/google")} /> */}
-                </div>
-              </div>
+                  <div className={'row' + " " + styles.signinbtninputrowpadding}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <LockIcon />
+                      <input
+                        className={styles.logininputwidth}
+                        placeholder='Password'
+                        name='password'
+                        type='password'
+                        value={loginInfo.password}
+                        onChange={(event) => {
+                          console.log({ ...loginInfo, password: event.target.value });
+                          setLoginInfo({ ...loginInfo, password: event.target.value })
+                        }}
+                        required
+                      />
+                      <span className={styles.VisibilityIconview}>
+                        <VisibilityIcon />
+                      </span>
+                    </div>
+                  </div>
+                  <div className={'row' + " " + styles.signinbtninputrowpadding}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <FormForget />
+                    </div>
+                  </div>
+                  <div className={'row' + " " + styles.inputrowpadding}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <Button className={styles.signinbtn} as="input" type="submit" value="Log In" />
+                      {/* <FormButtonComponent type="submit" isLoading={isLoading} title='Log In' /> */}
+                    </div>
+                  </div>
+                  <div className={'row' + " " + styles.inputrowpadding}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <img src='/assets/google.png' alt='google_icon' />
+                      <Button className={styles.googlebtn + " " + 'btn'} as="input" isGoogle={true} type="button" value="Sign In with Google" onClickFunc={() => router.push("/auth/google")} />
+                      {/* <FormButtonComponent type="button" isGoogle={true} title='Continue with' onClickFunc={() => router.push("/auth/google")} /> */}
+                    </div>
+                  </div>
 
-              {/* <Grid container justify='center' spacing={2}>
+                  {/* <Grid container justify='center' spacing={2}>
                 <Grid item xs={12} sm={10}>
                   <FormInputComponent
                     placeholder='Email'
@@ -207,11 +221,13 @@ const RegisterPage = () => {
                 </Grid>
               </Grid> */}
 
-              {/* <Grid container justify='center' spacing={2}>
+                  {/* <Grid container justify='center' spacing={2}>
                 <Grid item xs={12} md={11}>
                 </Grid>
               </Grid> */}
 
+                </div>
+              </div>
             </div>
           </div>
         </form>
