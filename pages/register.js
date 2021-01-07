@@ -132,32 +132,21 @@ const RegisterPage = () => {
           <div className={styles.imgWrapper}>
             <img className={styles.backImg} src='/assets/imgs/formBG1.jpg' alt='signUpForm' />
             <div className={'row'}>
-              {/* <div className={'col-sm-4	col-md-4	col-lg-4	col-xl-4' + " " + styles.btncenter}>
-                <div className={'row' + " " + styles.btncentermobview}>
-                  <div className={'col-sm-6	col-md-6	col-lg-6	col-xl-6' + " " + styles.btnendweb}>
-                    <Button className={styles.signupbtn + " " + styles.btnbgnone} as="input" type="submit" value="Log In" />
-                  </div>
-                </div>
-                <div className={'row' + " " + styles.btncentermobview}>
-                  <div className={'col-sm-6	col-md-6	col-lg-6	col-xl-6' + " " + styles.btnendweb}>
-                    <Button className={styles.signupbtn + " " + styles.btnbgcolor} as="input" type="submit" value="Sign up" />
-                  </div>
-                </div>
-              </div> */}
+
 
 
               <div className={'col-sm-4	col-md-4	col-lg-4	col-xl-4' + " " + styles.btncenter}>
                 <div className={'row' + " " + styles.btncentermobview}>
                   {/* <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6'> */}
                   <Link href="/signin">
-                    <Button className={styles.signupbtn + " " + styles.btnbgnone} as="input" value="Log In" />
+                  <Button className={styles.signupbtn + " " + styles.btnbgnone} type="submit" value="Log In">Log In</Button>
                   </Link>
                   {/* </div> */}
                   {/* </div>
                 <div className='row'> */}
                   {/* <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6'> */}
                   <Link href="/register">
-                    <Button className={styles.signupbtn + " " + styles.btnbgcolor} as="input" value="Sign up" />
+                  <Button className={styles.signupbtn + " " + styles.btnbgcolor} type="submit" value="Sign up" >Sign up</Button>
                   </Link>
                   {/* </div> */}
                 </div>
@@ -297,7 +286,7 @@ const RegisterPage = () => {
 
                   <div className={'row' + " " + styles.inputrowpadding}>
                     <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                      <label className={styles.inputrowpadding + " " + styles.labelsocials}>
+                      <label className={ styles.labelsocials}>
                         Connect socials
                   </label>
                     </div>
@@ -314,7 +303,8 @@ const RegisterPage = () => {
                       <img src='/assets/imgs/icons/twitter.png' className={styles.socialIcon} />
                     </div>
                     <div className='col-sm-3	col-md-3	col-lg-3	col-xl-3'>
-                      <Button className={styles.signupbtn} as="input" type="submit" value="Sign up" />
+                      {/* <Button  as="input" type="submit" value="Sign up" /> */}
+                      <Button className={styles.signupcolor} type="submit" >Sign up</Button>
                     </div>
                   </div>
                   {/* <Grid container spacing={2}>

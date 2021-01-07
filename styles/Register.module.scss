@@ -177,8 +177,9 @@
   text-transform: uppercase;
   font-weight: 500;
   margin-right: -20px;
-  padding: 7%;
+  padding: 10%;
   font-size: 1.3em;
+  width: 100%;
 }
 .btncenter {
   margin: auto;
@@ -187,7 +188,8 @@
 .btncentermobview {
   justify-content: flex-end;
   flex-direction: column;
-  margin-left: 55%;
+  margin-left: 50%;
+  margin-right: -30px;
 }
 .btnendweb {
   text-align: end;
@@ -219,6 +221,7 @@
     justify-content: center;
     flex-direction: row;
     margin-left: 0%;
+    margin-right: 0px;
   }
   .btnendweb {
     text-align: center;
@@ -231,6 +234,10 @@
     margin-right: 0px;
     padding: 2%;
     font-size: 1.3em;
+    width: auto;
+  }
+  .inputrowpadding {
+    padding: 5%;
   }
 }
 // login styles
@@ -270,6 +277,10 @@
   float: right;
   margin-right: 5%;
 }
+.signupcolor {
+  background-color: #308ab4;
+  font-size: 1.3em;
+}
 .signinbtninputrowpadding {
   padding: 5%;
 }
@@ -294,9 +305,15 @@ button:focus {
   color: black;
 }
 
-
 .btn-primary:hover {
   color: black !important;
   background-color: white !important;
   border-color: white !important;
+}
+
+input[type="button"]{
+  outline:none;
+}
+input[type="button"]::-moz-focus-inner {
+  border: 0;
 }
