@@ -113,6 +113,7 @@ const Home = () => {
 
   const fetchData = async () => {
     try {
+      console.log("getting again");
       if (latitude && longitude) {
         setLoading(true);
 
@@ -150,9 +151,12 @@ const Home = () => {
   };
 
   const onStudioTypeChange = (type) => {
-    page = 0;
-    setStudios([]);
-    setStudioType(type);
+    if (type != studioType) {
+      page = 0;
+      setStudios([]);
+      console.log("type", type);
+      setStudioType(type);
+    }
   }
 
   const onChangePrice = (min, max) => {
