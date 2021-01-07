@@ -66,6 +66,12 @@ const Home = () => {
     setShowClearFilterButton(shouldShowClearButton);
   }, [minPrice, maxPrice, latitude, longitude, distance, filterData, studioType]);
 
+    useEffect(async () => {
+      console.log("loadMore ", loadMore);
+      // await fetchData();
+
+    }, [loadMore]);
+
   const getSortInfo = () => {
     if (filterData && Object.keys(filterData).length) {
       const retObj = {};
@@ -161,7 +167,10 @@ const Home = () => {
     if (loadMore && page !== page2) {
       page = page2;
       // setPageNumber(pageNumber+1);
+      setLoadMore(false);
+      setPageNumber(page2);
       await fetchData();
+
       console.log("loading page", page, page2);
 
     }

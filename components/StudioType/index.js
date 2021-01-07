@@ -4,6 +4,10 @@ import styles from './style.module.scss';
 const StudioType = (props) => {
   return(
     <div className={styles.container}>
+      <div onClick={() => props.setStudioType(null)} className={styles.type}>
+        Find all
+      </div>
+      |
       <div onClick={() => props.setStudioType('music')} className={styles.type}>
         Find a Music Studio
       </div>
