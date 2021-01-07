@@ -90,12 +90,16 @@ const RegisterPage = () => {
               <div className={'col-sm-4	col-md-4	col-lg-4	col-xl-4' + " " + styles.btncenter}>
                 <div className={'row' + " " + styles.btncentermobview}>
                   {/* <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6'> */}
-                  <Button className={styles.signupbtn + " " + styles.btnbgcolor} type="submit" value="Log In">Log In</Button>
+                  <Link href="/signin">
+                    <Button className={styles.signupbtn + " " + styles.btnbgcolor} value="Log In">Log In</Button>
+                  </Link>
                   {/* </div> */}
                   {/* </div>
                 <div className='row'> */}
                   {/* <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6'> */}
-                  <Button className={styles.signupbtn + " " + styles.btnbgnone} type="submit" value="Sign up" >Sign up</Button>
+                  <Link href="/register">
+                    <Button className={styles.signupbtn + " " + styles.btnbgnone} value="Sign up" >Sign up</Button>
+                  </Link>
                   {/* </div> */}
                 </div>
               </div>

@@ -136,15 +136,15 @@ const RegisterPage = () => {
                             <div className='col-sm-4	col-md-4	col-lg-4	col-xl-4'>
                                 <div className={'row' + " " + styles.ownbtncentermobview}>
                                     <Link href="/signin">
-                                        <Button className={styles.signupbtn + " " + styles.btnbgnone} type="submit" value="Log In">Log In</Button>
+                                        <Button className={styles.signupbtn + " " + styles.btnbgnone} value="Log In">Log In</Button>
                                     </Link>
                                     <Link href="/register">
-                                        <Button className={styles.signupbtn + " " + styles.btnbgcolor} type="submit" value="Sign up" >Sign up</Button>
+                                        <Button className={styles.signupbtn + " " + styles.btnbgnone} value="Sign up" >Sign up</Button>
                                     </Link>
                                 </div>
                                 <div className={'row' + " " + styles.ownerbtncentermobview}>
                                     <Link href="/registerowner">
-                                        <Button className={styles.signupbtn + " " + styles.btnbgcolor} type="submit" value="Sign up" >Sign up as Owner</Button>
+                                        <Button className={styles.signupbtn + " " + styles.btnbgcolor} value="Sign up" >Sign up as Owner</Button>
                                     </Link>
                                 </div>
                             </div>
