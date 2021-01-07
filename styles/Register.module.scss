@@ -3,11 +3,13 @@
 .container {
   padding: 5% 5%;
 
-  h1 {
+  h3 {
     color: $colorSky;
     letter-spacing: 3px;
-    font-size: 35px;
     margin-bottom: 10px;
+  }
+  h4 {
+    text-align: center;
   }
 
   .p30 {
@@ -108,7 +110,7 @@
   }
 
   .imgWrapper {
-    height: calc(100vh - 250px) !important;
+    height: calc(100vh - 220px) !important;
     overflow: auto !important;
   }
 
@@ -190,6 +192,22 @@
   flex-direction: column;
   margin-left: 50%;
   margin-right: -30px;
+  margin-top: 60%;
+  margin-bottom: 60%;
+}
+.ownbtncentermobview {
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-left: 50%;
+  margin-right: -30px;
+  margin-top: 60%;
+  margin-bottom: 55%;
+}
+.ownerbtncentermobview {
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-left: 25%;
+  margin-right: -30px;
 }
 .btnendweb {
   text-align: end;
@@ -211,6 +229,9 @@
 //btn design on click change
 
 @media only screen and (max-width: 600px) {
+  .container {
+    padding: 15% 5% !important;
+  }
   .btnbgcolor {
     background-color: white;
     color: black;
@@ -239,7 +260,54 @@
   .inputrowpadding {
     padding: 5%;
   }
+  .signinbtninputrowpadding {
+    padding: 8% !important;
+  }
+  .signupiconcenter {
+    display: block !important;
+    text-align: center;
+  }
+  .btncentermobview,
+  .ownerbtncentermobview,
+  .socialIcon,
+  .labelsocials,
+  .iconstyle,
+  .p30,
+  .ownbtncentermobview,
+  .ownerbtncentermobview {
+    display: none;
+  }
+  .btnstripe{
+    text-align: center;
+  }
+  .imgWrapper {
+    padding: 10%;
+    position: relative;
+    overflow: hidden;
+    width: auto !important;
+  }
+  .inputwidth,
+  .logininputwidth {
+    width: 89% !important;
+  }
+  .contentWrapper {
+    position: relative;
+    float: right;
+    padding: 50px 20px 20px 20px;
+    z-index: 2;
+    background-color: white;
+    border-radius: 20px;
+    width: 100%;
+  }
+  .signUpForm {
+    top: 0px !important;
+  }
 }
+
+.signupiconcenter {
+  display: none;
+}
+
 // login styles
 .googlebtn {
   background: no-repeat;
@@ -311,8 +379,8 @@ button:focus {
   border-color: white !important;
 }
 
-input[type="button"]{
-  outline:none;
+input[type="button"] {
+  outline: none;
 }
 input[type="button"]::-moz-focus-inner {
   border: 0;

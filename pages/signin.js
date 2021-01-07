@@ -78,7 +78,8 @@ const RegisterPage = () => {
       <Head>
         <title>Sign into QuikSession</title>
       </Head>
-      <h1>WELCOME TO QUIKSESSION</h1>
+      <h4>WELCOME TO </h4>
+      <h3>QUIKSESSION</h3>
       <p className={styles.p30}></p>
 
       <div className={styles.formWrapper}>

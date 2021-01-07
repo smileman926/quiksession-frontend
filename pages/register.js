@@ -124,7 +124,8 @@ const RegisterPage = () => {
       <Head>
         <title>Register to QuikSession</title>
       </Head>
-      <h1>WELCOME TO QUIKSESSION</h1>
+      <h4>WELCOME TO </h4>
+      <h3>QUIKSESSION</h3>
       <p className={styles.p30}></p>
 
       <div className={styles.formWrapper}>
@@ -135,20 +136,19 @@ const RegisterPage = () => {
 
 
 
-              <div className={'col-sm-4	col-md-4	col-lg-4	col-xl-4' + " " + styles.btncenter}>
+              <div className='col-sm-4	col-md-4	col-lg-4	col-xl-4' >
                 <div className={'row' + " " + styles.btncentermobview}>
-                  {/* <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6'> */}
                   <Link href="/signin">
-                  <Button className={styles.signupbtn + " " + styles.btnbgnone} type="submit" value="Log In">Log In</Button>
+                    <Button className={styles.signupbtn + " " + styles.btnbgnone} type="submit" value="Log In">Log In</Button>
                   </Link>
-                  {/* </div> */}
-                  {/* </div>
-                <div className='row'> */}
-                  {/* <div className='col-sm-6	col-md-6	col-lg-6	col-xl-6'> */}
                   <Link href="/register">
-                  <Button className={styles.signupbtn + " " + styles.btnbgcolor} type="submit" value="Sign up" >Sign up</Button>
+                    <Button className={styles.signupbtn + " " + styles.btnbgcolor} type="submit" value="Sign up" >Sign up</Button>
                   </Link>
-                  {/* </div> */}
+                </div>
+                <div className={'row' + " " + styles.ownerbtncentermobview}>
+                  <Link href="/registerowner">
+                    <Button className={styles.signupbtn + " " + styles.btnbgnone} type="submit" value="Sign up" >Sign up as Owner</Button>
+                  </Link>
                 </div>
               </div>
 
@@ -157,6 +157,14 @@ const RegisterPage = () => {
 
               <div className='col-sm-8	col-md-8	col-lg-8	col-xl-8'>
                 <div className={styles.contentWrapper}>
+
+                  <div className={'row' + " " + styles.signupiconcenter}>
+                    <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
+                      <img className={styles.loginiconstyle} src='/assets/logo.png' alt='signUpForm' />
+                    </div>
+                  </div>
+
+
                   <div className={'row' + " " + styles.inputrowpadding}>
                     <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
                       <AccountCircle />
@@ -286,7 +294,7 @@ const RegisterPage = () => {
 
                   <div className={'row' + " " + styles.inputrowpadding}>
                     <div className='col-sm-12	col-md-12	col-lg-12	col-xl-12'>
-                      <label className={ styles.labelsocials}>
+                      <label className={styles.labelsocials}>
                         Connect socials
                   </label>
                     </div>
