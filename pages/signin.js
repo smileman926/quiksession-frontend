@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import Link from "next/link";
+
 import styles from '../styles/Register.module.scss';
 import clsx from 'clsx';
 import FormInputComponent from '../components/FormControls/FormInputComponent';
