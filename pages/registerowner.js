@@ -139,7 +139,7 @@ const RegisterPage = () => {
                                         <Button className={styles.signupbtn + " " + styles.btnbgnone} type="submit" value="Log In">Log In</Button>
                                     </Link>
                                     <Link href="/register">
-                                        <Button className={styles.signupbtn + " " + styles.btnbgcolor} type="submit" value="Sign up" >Sign up</Button>
+                                        <Button className={styles.signupbtn + " " + styles.btnbgnone} type="submit" value="Sign up" >Sign up</Button>
                                     </Link>
                                 </div>
                                 <div className={'row' + " " + styles.ownerbtncentermobview}>
